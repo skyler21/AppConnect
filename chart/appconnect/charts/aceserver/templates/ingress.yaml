@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: appconnect-ingress
+spec:
+  rules:
+    - host: appconnect.minikube.server
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: appserver
+                port:
+                  number: 7600
